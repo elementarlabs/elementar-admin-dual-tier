@@ -17,8 +17,8 @@ import {
   SuggestionIconDirective,
   SuggestionsComponent,
   SuggestionThumbDirective
-} from '@elementar-ui/components';
-import { AvatarComponent } from '@elementar-ui/components';
+} from '@elementar-ui/components/suggestions';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 
 @Component({
   selector: 'emr-assistant-search',
