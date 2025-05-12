@@ -1,5 +1,5 @@
-@if (pageLoaded()) {
-  <emr-page-loading-bar fixed></emr-page-loading-bar>
-}
-<app-screen-loader [loadingText]="loadingText()"></app-screen-loader>
+<emr-page-loading-bar fixed/>
+<emr-splash-screen>
+  <emr-text-logo>ELEMENTAR</emr-text-logo>
+</emr-splash-screen>
 <router-outlet/>
