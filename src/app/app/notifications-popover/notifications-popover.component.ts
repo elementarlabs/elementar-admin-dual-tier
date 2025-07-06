@@ -3,7 +3,6 @@ import { Notification, NotificationDefDirective, NotificationListComponent } fro
 import { RouterLink } from '@angular/router';
 import { MatAnchor, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { MatRipple } from '@angular/material/core';
 import { PopoverComponent } from '@elementar-ui/components/popover';
 import { MentionedInCommentNotification } from '../mentioned-in-comment/mentioned-in-comment.notification';
 import {
@@ -21,8 +20,7 @@ import {
     RouterLink,
     MatAnchor,
     MatIcon,
-    MatIconButton,
-    MatRipple
+    MatIconButton
 ],
   templateUrl: './notifications-popover.component.html',
   styleUrl: './notifications-popover.component.scss'
