@@ -3,10 +3,10 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { PageLoadingBarComponent } from '@elementar-ui/components/page-loading-bar';
 import {
-  AnalyticsService, EnvironmentService,
+  AnalyticsService,
+  EnvironmentService,
   InactivityTrackerService,
   SeoService,
-  ThemeManagerService
 } from '@elementar-ui/components/core';
 import { TextLogoComponent } from '@elementar-ui/components/logo';
 import { SplashScreenComponent } from '@elementar-ui/components/splash-screen';
@@ -23,7 +23,6 @@ import { SplashScreenComponent } from '@elementar-ui/components/splash-screen';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  private _themeManager = inject(ThemeManagerService);
   private _analyticsService = inject(AnalyticsService);
   private _inactivityTracker = inject(InactivityTrackerService);
   private _seoService = inject(SeoService);
@@ -56,7 +55,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._themeManager.setColorScheme(this._themeManager.getPreferredColorScheme());
     this._seoService.trackCanonicalChanges(this._envService.getValue('siteUrl'));
   }
 }

@@ -8,10 +8,14 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { NotificationsPopoverComponent } from '../notifications-popover/notifications-popover.component';
 import { AssistantSearchComponent } from '../assistant-search/assistant-search.component';
 import { DicebearComponent } from '@elementar-ui/components/avatar';
-import { SoundEffectDirective, ThemeManagerService } from '@elementar-ui/components/core';
+import { SoundEffectDirective } from '@elementar-ui/components/core';
 import { PopoverTriggerForDirective } from '@elementar-ui/components/popover';
 import { LayoutApiService } from '@elementar-ui/components/layout';
-import { Notification } from '@elementar-ui/components/notifications';
+import {
+  ColorSchemeDarkDirective,
+  ColorSchemeLightDirective,
+  ColorSchemeSwitcherComponent
+} from '@elementar-ui/components/color-scheme';
 
 @Component({
   selector: 'app-header',
@@ -29,7 +33,10 @@ import { Notification } from '@elementar-ui/components/notifications';
     AssistantSearchComponent,
     SoundEffectDirective,
     NotificationsPopoverComponent,
-    PopoverTriggerForDirective
+    PopoverTriggerForDirective,
+    ColorSchemeDarkDirective,
+    ColorSchemeLightDirective,
+    ColorSchemeSwitcherComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -38,52 +45,10 @@ import { Notification } from '@elementar-ui/components/notifications';
   }
 })
 export class HeaderComponent {
-  protected _themeManager = inject(ThemeManagerService);
   private _layoutApi = inject(LayoutApiService);
 
   @Input()
   sidebarHidden = false;
-
-  notifications: Notification[] = [
-    {
-      actor: {
-        id: 1,
-        name: 'Justin Hansen',
-        username: 'justin.hansen',
-        avatarUrl: 'assets/avatars/2.svg'
-      },
-      notifier: {
-        id: 2,
-        name: 'Elma Johnson',
-        username: 'elma.johnson',
-        avatarUrl: 'assets/avatars/4.svg'
-      },
-      payload: {
-        content: 'what did you say?'
-      },
-      type: 'mentionedInComment',
-      createdAt: '1 hour ago'
-    },
-    {
-      actor: {
-        id: 3,
-        name: 'Johnny Gladden',
-        username: 'johnny.gladden',
-        avatarUrl: 'assets/avatars/3.svg'
-      },
-      notifier: {
-        id: 4,
-        name: 'Angela Naylor',
-        username: 'angela.naylor',
-        avatarUrl: 'assets/avatars/7.svg'
-      },
-      payload: {
-        folderName: 'My New Project'
-      },
-      type: 'inviteToEditFilesInFolder',
-      createdAt: '2 hours ago'
-    }
-  ];
 
   toggleSidebar(): void {
     if (!this.sidebarHidden) {
